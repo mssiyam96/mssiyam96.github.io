@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohi Uddin Siyam — IT Support Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #F7F3EE;
+    --sand-dark: #EDE7DC;
+    --ink: #2B2520;
+    --ink-mid: #5C524A;
+    --ink-light: #9C8F85;
+    --rust: #B5513A;
+    --rust-light: #F0E0D9;
+    --sage: #5A7560;
+    --sage-light: #DDE8DE;
+    --blue: #2A5F8F;
+    --blue-light: #E0EBF5;
+    --radius: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sand);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--sand);
+    border-bottom: 1px solid var(--sand-dark);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-name {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--rust); }
+
+  .hero {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 2rem 64px;
+  }
+
+  .hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(34px, 5.5vw, 52px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero-bio {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    max-width: 580px;
+    margin-bottom: 32px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--ink-mid);
+  }
+
+  .hero-meta-item a {
+    color: var(--rust);
+    text-decoration: none;
+  }
+
+  .hero-meta-item a:hover { text-decoration: underline; }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--sand);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--rust); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-mid);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    border: 1px solid var(--sand-dark);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+
+  .divider {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border: none;
+    border-top: 1px solid var(--sand-dark);
+  }
+
+  .section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 64px 2rem;
+  }
+
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 32px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .about-text p {
+    color: var(--ink-mid);
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-card {
+    background: var(--rust-light);
+    border-radius: var(--radius);
+    padding: 22px;
+    align-self: start;
+  }
+
+  .about-card-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+
+  .about-card ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+
+  .about-card ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(181, 81, 58, 0.15);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .about-card ul li:last-child { border-bottom: none; }
+
+  .about-card ul li span {
+    color: var(--rust);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* EXPERTISE TAGS */
+  .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .etag {
+    background: white;
+    border: 1px solid var(--sand-dark);
+    color: var(--ink-mid);
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  /* WORK */
+  .work-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    padding: 22px;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--sand-dark);
+    transition: border-color 0.15s;
+  }
+
+  .work-item:hover { border-color: var(--rust); }
+
+  .work-year {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.5;
+    padding-top: 2px;
+  }
+
+  .work-role {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .work-company {
+    font-size: 13px;
+    color: var(--rust);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .work-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .work-bullets li {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+
+  .work-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+  }
+
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    background: var(--sage-light);
+    color: var(--sage);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+
+  .tag-blue {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 14px;
+  }
+
+  .skill-group {
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--sand-dark);
+    padding: 18px;
+  }
+
+  .skill-group-title {
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+
+  .skill-group ul li {
+    padding: 4px 0;
+    border-bottom: 1px solid var(--sand-dark);
+  }
+
+  .skill-group ul li:last-child { border-bottom: none; }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .edu-item {
+    padding: 18px 20px;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--sand-dark);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    align-items: start;
+  }
+
+  .edu-degree {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--ink-mid);
+    margin-top: 2px;
+  }
+
+  .edu-date {
+    font-size: 12px;
+    color: var(--ink-light);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .edu-badge {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  /* CONTACT */
+  .contact-block {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .contact-heading {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--sand);
+    margin-bottom: 8px;
+  }
+
+  .contact-sub {
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--sand);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.15s;
+  }
+
+  .contact-link:hover { color: var(--rust-light); }
+
+  .contact-link-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(247, 243, 238, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 2rem;
+    font-size: 13px;
+    color: var(--ink-light);
+    border-top: 1px solid var(--sand-dark);
+  }
+
+  @media (max-width: 580px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .work-item { grid-template-columns: 1fr; gap: 4px; }
+    .edu-item { grid-template-columns: 1fr; }
+    .edu-date { text-align: left; }
+    .contact-block { padding: 28px 20px; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Mohi Uddin Siyam</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">IT Support Professional</p>
+  <h1>Keeping systems running &amp; <em>people unblocked.</em></h1>
+  <p class="hero-bio">
+    I'm a dedicated IT professional based in Springfield, MA with hands-on experience in help desk support, hardware troubleshooting, network fundamentals, and end-user training. I thrive on diagnosing the tricky problems and making technology work smoothly for the people who depend on it.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">📍 Springfield, MA</div>
+    <div class="hero-meta-item">📞 (413) 302-6925</div>
+    <div class="hero-meta-item">✉ <a href="mailto:mssiyam96@gmail.com">mssiyam96@gmail.com</a></div>
+    <div class="hero-meta-item">🔗 <a href="https://www.linkedin.com/in/mohi-uddin-siyam-a84a7171" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="hero-actions">
+    <a href="#work" class="btn-primary">See my experience</a>
+    <a href="#contact" class="btn-ghost">Get in touch</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <p class="section-label">About me</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm an IT professional with a background in both real-world support environments and formal technical training. My experience spans help desk operations, Active Directory management, OS imaging, network troubleshooting, and end-user education.
+      </p>
+      <p>
+        I enjoy the human side of IT just as much as the technical side — helping a non-technical user understand a problem (and feel good about it) is as satisfying as fixing the problem itself.
+      </p>
+      <p>
+        I'm trilingual in English, Bengali, and Urdu, which helps me support diverse teams and communities effectively.
+      </p>
+    </div>
+    <div class="about-card">
+      <p class="about-card-title">Quick profile</p>
+      <ul>
+        <li>📍 Springfield, MA <span>Location</span></li>
+        <li>💼 Help Desk / IT Support <span>Role</span></li>
+        <li>🔐 Cybersecurity <span>Focus area</span></li>
+        <li>🌐 3 languages <span>EN / BN / UR</span></li>
+        <li>🎓 Google Certified <span>IT + Cyber</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="expertise-tags">
+    <span class="etag">IT Support &amp; Troubleshooting</span>
+    <span class="etag">Help Desk (Tier 1 &amp; 2)</span>
+    <span class="etag">Hardware &amp; Software Installation</span>
+    <span class="etag">Windows / macOS / Linux</span>
+    <span class="etag">Active Directory</span>
+    <span class="etag">Network Fundamentals</span>
+    <span class="etag">Remote Desktop</span>
+    <span class="etag">Ticketing Systems</span>
+    <span class="etag">Basic Cybersecurity</span>
+    <span class="etag">User Training</span>
+    <span class="etag">Documentation</span>
+    <span class="etag">Windows Server</span>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- WORK -->
+<section class="section" id="work">
+  <p class="section-label">Work experience</p>
+  <div class="work-list">
+
+    <div class="work-item">
+      <div class="work-year">Aug 2025<br>Present</div>
+      <div>
+        <p class="work-role">IT Technician</p>
+        <p class="work-company">Latino Counseling Centers Inc — Springfield, MA</p>
+        <ul class="work-bullets">
+          <li>Delivered 2nd-line IT support for desktops, laptops, mobile devices, printers, and networking issues; ensured SLA compliance and high-quality customer service.</li>
+          <li>Managed IT operations including OS imaging, asset inventory, infrastructure support, end-user training, and project-based tasks with accurate documentation.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">2nd-line support</span>
+          <span class="tag">OS imaging</span>
+          <span class="tag">Asset management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-year">May 2025<br>Jul 2025</div>
+      <div>
+        <p class="work-role">IT Support Intern</p>
+        <p class="work-company">Smith Vocational and Agricultural High School — Northampton, MA</p>
+        <ul class="work-bullets">
+          <li>Provided technical support by troubleshooting hardware/software issues and ensuring smooth day-to-day IT operations.</li>
+          <li>Configured and maintained IT systems including operating systems, applications, user accounts, printers, and network connectivity.</li>
+          <li>Enhanced system reliability through regular updates, security patching, and documentation of issues and solutions.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Help desk</span>
+          <span class="tag">System config</span>
+          <span class="tag">Security patching</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-year">May 2023<br>Mar 2024</div>
+      <div>
+        <p class="work-role">IT Executive</p>
+        <p class="work-company">Tourisonn Limited — Dhaka, Bangladesh</p>
+        <ul class="work-bullets">
+          <li>Provided technical support for end-users, troubleshooting hardware/software issues to improve system performance.</li>
+          <li>Managed Active Directory user accounts, handling onboarding and offboarding of employees.</li>
+          <li>Diagnosed and resolved network connectivity issues, improving uptime by 20%.</li>
+          <li>Evaluated new IT tools and software, recommending upgrades that increased system efficiency.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Active Directory</span>
+          <span class="tag">Network support</span>
+          <span class="tag-blue">20% uptime gain</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-year">Jun 2024<br>Aug 2025</div>
+      <div>
+        <p class="work-role">Sales Associate (Part-time)</p>
+        <p class="work-company">GPM Investments LLC (Pride Gas Station) — Springfield, MA</p>
+        <ul class="work-bullets">
+          <li>Provided customer service and maintained store equipment for optimal functionality.</li>
+          <li>Managed cash transactions and inventory systems with accuracy and attention to detail.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Customer service</span>
+          <span class="tag">Inventory</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROJECTS -->
+  <p class="section-label" style="margin-top: 40px;">Projects</p>
+  <div class="work-list">
+
+    <div class="work-item">
+      <div class="work-year">Jun – Aug<br>2016</div>
+      <div>
+        <p class="work-role">School Management System</p>
+        <p class="work-company">Personal / Academic Project</p>
+        <ul class="work-bullets">
+          <li>Built a web portal for school administration using PHP, HTML, CSS, and MySQL.</li>
+          <li>Developed a teacher-student portal for managing grades and notes.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-year">May 2017<br>Dec 2023</div>
+      <div>
+        <p class="work-role">Home IT Support Setup</p>
+        <p class="work-company">Personal Project</p>
+        <ul class="work-bullets">
+          <li>Configured a secure home network with optimized Wi-Fi and VPN.</li>
+          <li>Set up remote access tools for troubleshooting.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">VPN</span><span class="tag">Networking</span><span class="tag">Remote access</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-year">Feb 2014<br>Present</div>
+      <div>
+        <p class="work-role">PC Build &amp; OS Installation</p>
+        <p class="work-company">Personal Project</p>
+        <ul class="work-bullets">
+          <li>Assembled and configured a custom-built PC running Windows and Linux.</li>
+          <li>Resolved hardware compatibility issues and optimized performance.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">Hardware</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <p class="section-label">Skills</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <p class="skill-group-title">Support</p>
+      <ul>
+        <li>Help Desk (Tier 1 &amp; 2)</li>
+        <li>Hardware troubleshooting</li>
+        <li>Software troubleshooting</li>
+        <li>Remote desktop</li>
+        <li>Ticketing systems</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Systems</p>
+      <ul>
+        <li>Windows (all versions)</li>
+        <li>macOS</li>
+        <li>Linux</li>
+        <li>Windows Server</li>
+        <li>Active Directory</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Networking</p>
+      <ul>
+        <li>Network fundamentals</li>
+        <li>CCNA (Routing &amp; Switching)</li>
+        <li>VPN configuration</li>
+        <li>Wi-Fi optimization</li>
+        <li>Connectivity diagnostics</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Security</p>
+      <ul>
+        <li>Basic cybersecurity</li>
+        <li>Security patching</li>
+        <li>Google Cybersecurity cert</li>
+        <li>STCC Cybersecurity program</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <p class="section-label">Education &amp; certifications</p>
+  <div class="edu-list">
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">BSc in Information Technology</p>
+        <p class="edu-school">University of Information Technology and Science — Dhaka, Bangladesh</p>
+        <span class="edu-badge">Evaluated by CED</span>
+      </div>
+      <div class="edu-date">May 2017</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Certificate in Cybersecurity</p>
+        <p class="edu-school">Springfield Technical Community College — Springfield, MA</p>
+        <span class="edu-badge">In progress</span>
+      </div>
+      <div class="edu-date">Running</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Google Cybersecurity Certificate</p>
+        <p class="edu-school">Coursera</p>
+      </div>
+      <div class="edu-date">Nov 2025</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">IT Support Certificate</p>
+        <p class="edu-school">Tech Foundry — Springfield, MA</p>
+      </div>
+      <div class="edu-date">Jun 2025</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Google IT Support Certificate</p>
+        <p class="edu-school">Coursera</p>
+      </div>
+      <div class="edu-date">Apr 2025</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">CCNA Certificate — Routing &amp; Switching</p>
+        <p class="edu-school">CSL Training — Dhaka, Bangladesh</p>
+      </div>
+      <div class="edu-date">Oct 2019</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <p class="section-label">Contact</p>
+  <div class="contact-block">
+    <div>
+      <p class="contact-heading">Let's connect.</p>
+      <p class="contact-sub">Open to IT support roles, help desk positions,<br>and cybersecurity opportunities.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:mssiyam96@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        mssiyam96@gmail.com
+      </a>
+      <a href="tel:4133026925" class="contact-link">
+        <span class="contact-link-icon">📞</span>
+        (413) 302-6925
+      </a>
+      <a href="https://www.linkedin.com/in/mohi-uddin-siyam-a84a7171" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-icon">in</span>
+        LinkedIn profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mohi Uddin Siyam · Springfield, MA · IT Support Professional
+</footer>
+
+</body>
+</html>
